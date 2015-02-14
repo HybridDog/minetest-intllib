@@ -24,7 +24,7 @@ local insertion_pattern = "("..INS_CHAR.."?)"..INS_CHAR.."(%(?)(%d+)(%)?)"
 local function make_getter(msgstrs)
 	return function(s, ...)
 		local str
-		if msgstrs then
+		if rawget(_G, "msgstrs") then
 			str = msgstrs[s]
 		end
 		if not str or str == "" then
